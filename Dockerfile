@@ -1,5 +1,4 @@
 FROM ubuntu:16.04
-MAINTAINER Dave van Stein <dvanstein@xebia.com>
 
 RUN apt-get update && apt-get install -q -y --fix-missing \
 	make \
@@ -24,3 +23,5 @@ RUN apt-get update && apt-get install -q -y --fix-missing \
 	rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
+
+CMD docker images
