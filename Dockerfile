@@ -1,5 +1,26 @@
-FROM owasp/zap2docker-weekly
+FROM ubuntu:16.04
+MAINTAINER Dave van Stein <dvanstein@xebia.com>
 
-RUN yum install -y docker
+RUN apt-get update && apt-get install -q -y --fix-missing \
+	make \
+	automake \
+	autoconf \
+	gcc g++ \
+	openjdk-8-jdk \
+	ruby \
+	wget \
+	curl \
+	xmlstarlet \
+	unzip \
+	git \
+  docker \
+	openbox \
+	xterm \
+	net-tools \
+	ruby-dev \
+	python-pip \
+	xvfb && \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/*
 
-RUN docker images
+RUN pip install --upgrade pip
